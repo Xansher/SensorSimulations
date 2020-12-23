@@ -6,7 +6,29 @@
         xmlns:local="clr-namespace:SensorSimulations"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+    <DockPanel Background="#FF1A1A1D" ScrollViewer.VerticalScrollBarVisibility="Disabled" ClipToBounds="True" Margin="0">
+        <Menu Background="#FF1A1A1D" BorderBrush="#FF212121" ClipToBounds="True" RenderTransformOrigin="0,0" Margin="0" DockPanel.Dock="Top" VerticalAlignment="Top">
+            <MenuItem x:Name="___MenuItem___File_" Header="File" Margin="0" Style="{DynamicResource SimpleMenuItem}" Foreground="White">
+                <MenuItem Header="Exit" Height="23.344" Style="{DynamicResource SimpleMenuItem}" Margin="0" Foreground="White" Background="#FF060000" HorizontalAlignment="Left" Width="157.607" Click="Add"/>
+            </MenuItem>
+            <MenuItem Header="Opcje" Margin="0" Style="{DynamicResource SimpleMenuItem}" Foreground="White" StaysOpenOnClick="True">
 
-    </Grid>
+            </MenuItem>
+        </Menu>
+        <Grid VerticalAlignment="Top" Height="403">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="187*"/>
+                <RowDefinition Height="218*"/>
+            </Grid.RowDefinitions>
+            <ComboBox x:Name="SensorTypes" ItemsSource="{Binding SensorTypes}" VerticalAlignment="Bottom" Margin="35,0,636,126">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Type}" />
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <ComboBox x:Name="SensorComboBox" VerticalAlignment="Bottom" Margin="272,0,400,126" Width="130"/>
+            <ComboBox x:Name="LogadingTypeComboBox" VerticalAlignment="Bottom" Margin="35,0,635,71"/>
+        </Grid>
+    </DockPanel>
 </Window>
