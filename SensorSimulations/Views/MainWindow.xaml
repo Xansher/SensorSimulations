@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SensorSimulations"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Sensor Simulations" Height="450" Width="800">
     <DockPanel Background="#FF1A1A1D" ScrollViewer.VerticalScrollBarVisibility="Disabled" ClipToBounds="True" Margin="0">
         <Menu Background="#FF1A1A1D" BorderBrush="#FF212121" ClipToBounds="True" RenderTransformOrigin="0,0" Margin="0" DockPanel.Dock="Top" VerticalAlignment="Top">
             <MenuItem x:Name="___MenuItem___File_" Header="File" Margin="0" Style="{DynamicResource SimpleMenuItem}" Foreground="White">
@@ -27,8 +27,25 @@
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
             </ComboBox>
-            <ComboBox x:Name="SensorComboBox" VerticalAlignment="Bottom" Margin="272,0,400,126" Width="130"/>
-            <ComboBox x:Name="LogadingTypeComboBox" VerticalAlignment="Bottom" Margin="35,0,635,71"/>
+            <ComboBox x:Name="SensorComboBox" ItemsSource="{Binding }" VerticalAlignment="Bottom" Margin="272,0,400,126" Width="130">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Type}"/>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <ComboBox x:Name="LoadingTypeComboBox" ItemsSource="{Binding LoadingTypes}" VerticalAlignment="Bottom" Margin="35,0,635,71">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Type}"/>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <Label Content="Type of sensor" HorizontalAlignment="Left" Margin="35,7,0,0" VerticalAlignment="Top" Style="{DynamicResource SimpleTextStyle}"/>
+            <Label Content="Load sensor from" HorizontalAlignment="Left" Margin="35,65,0,0" VerticalAlignment="Top" Style="{DynamicResource SimpleTextStyle}"/>
+            <ListBox Margin="451,17,220,48" ItemsSource="{Binding}">
+                
+            </ListBox>
         </Grid>
     </DockPanel>
 </Window>

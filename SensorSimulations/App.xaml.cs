@@ -20,9 +20,10 @@ namespace SensorSimulations
             base.OnStartup(e);
             ViewModels.MainViewModel VM = new ViewModels.MainViewModel();
             MainWindow window = new MainWindow(VM);
-           
             window.DataContext = VM;
             window.Show();
+
+            
         }
     }
 }

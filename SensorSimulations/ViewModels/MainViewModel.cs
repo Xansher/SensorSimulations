@@ -21,10 +21,14 @@ namespace SensorSimulations.ViewModels
             output.Add(new SensorType(Enums.SensorType.GMR));
             output.Add(new SensorType(Enums.SensorType.TMR));
 
-            
             SensorTypes = output;
-            
 
+
+            ObservableCollection<Models.LoadingType> loadingTypes = new ObservableCollection<LoadingType>();
+            loadingTypes.Add(new LoadingType(Enums.LoadingType.Catalog));
+            loadingTypes.Add(new LoadingType(Enums.LoadingType.Manual));
+            loadingTypes.Add(new LoadingType(Enums.LoadingType.Curve));
+            LoadingTypes = loadingTypes;
         }
 
         private ObservableCollection<Models.SensorType> _SensorTypes;
@@ -40,7 +44,19 @@ namespace SensorSimulations.ViewModels
                 //NotifyPropertyChanged("SensorTypes");
             }
         }
+        private ObservableCollection<Models.LoadingType> _LoadingTypes;
+        public ObservableCollection<Models.LoadingType> LoadingTypes
+        {
+            get
+            {
+                return _LoadingTypes;
 
+            }
+            set
+            {
+                _LoadingTypes = value;
+            }
+        }
 
         public event PropertyChangedEventHandler PropertyChanged
         {
